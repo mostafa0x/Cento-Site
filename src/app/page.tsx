@@ -30,6 +30,7 @@ export default function Home() {
           loading="eager"
           fetchPriority="high"
           sizes="100vw"
+          quality={75}
           placeholder="blur"
           blurDataURL="data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJQBYdgxVkJNps55AljgAA+foAeHYqqoNILzjlVzlHXXiIwyDZQDGQeZd2Qpx2snb8WuQfoKmUAAAA"
           className="object-cover object-center"
