@@ -24,12 +24,12 @@ export default function BestSellersSection({
 
   const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
   const [hasStarted, setHasStarted] = useState<boolean>(false);
 
-  // Touch Swipe Refs
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
+  // Swipe / Drag Refs
+  const startX = useRef<number | null>(null);
+  const endX = useRef<number | null>(null);
+  const isDragging = useRef<boolean>(false);
   const isSwiping = useRef<boolean>(false);
 
   // Advance to next pair
@@ -102,38 +102,36 @@ export default function BestSellersSection({
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto-scroll every 1.5 seconds (1500ms)
+  // Auto-scroll every 4 seconds (4000ms) on both PC and mobile without pausing on hover
   useEffect(() => {
-    if (!hasStarted || isPaused) return;
+    if (!hasStarted) return;
 
     const interval = setInterval(() => {
       handleNext();
-    }, 1500);
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [hasStarted, isPaused, handleNext]);
+  }, [hasStarted, handleNext]);
 
-  // Touch Handlers
+  // Touch Handlers (Mobile)
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
+    startX.current = e.targetTouches[0].clientX;
     isSwiping.current = false;
-    setIsPaused(true);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
+    endX.current = e.targetTouches[0].clientX;
     if (
-      touchStartX.current !== null &&
-      Math.abs(touchStartX.current - touchEndX.current) > 10
+      startX.current !== null &&
+      Math.abs(startX.current - endX.current) > 10
     ) {
       isSwiping.current = true;
     }
   };
 
   const handleTouchEnd = () => {
-    setIsPaused(false);
-    if (touchStartX.current !== null && touchEndX.current !== null) {
-      const distance = touchStartX.current - touchEndX.current;
+    if (startX.current !== null && endX.current !== null) {
+      const distance = startX.current - endX.current;
       if (distance > 40) {
         handleNext();
       } else if (distance < -40) {
@@ -143,13 +141,53 @@ export default function BestSellersSection({
     setTimeout(() => {
       isSwiping.current = false;
     }, 50);
-    touchStartX.current = null;
-    touchEndX.current = null;
+    startX.current = null;
+    endX.current = null;
+  };
+
+  // Mouse Handlers (PC / Desktop Drag to Scroll)
+  const handleMouseDown = (e: React.MouseEvent) => {
+    startX.current = e.clientX;
+    endX.current = e.clientX;
+    isDragging.current = true;
+    isSwiping.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current || startX.current === null) return;
+    endX.current = e.clientX;
+    if (Math.abs(startX.current - e.clientX) > 10) {
+      isSwiping.current = true;
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    if (startX.current !== null && endX.current !== null) {
+      const distance = startX.current - endX.current;
+      if (distance > 40) {
+        handleNext();
+      } else if (distance < -40) {
+        handlePrev();
+      }
+    }
+    setTimeout(() => {
+      isSwiping.current = false;
+    }, 50);
+    startX.current = null;
+    endX.current = null;
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging.current) {
+      handleMouseUp();
+    }
   };
 
   return (
     <section className="w-full px-4 mt-1">
-      {/* Header Row: Title */}
+      {/* Header Row: Title & Arrow Controls */}
       <div
         className="w-full flex items-center justify-between animate-fade-in"
         style={{ animationDelay: "950ms" }}
@@ -157,17 +195,52 @@ export default function BestSellersSection({
         <h2 className="text-[17px] font-semibold text-white tracking-tight">
           Best Sellers
         </h2>
+
+        {/* Carousel Arrow Controls */}
+        {/* <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={handlePrev}
+            aria-label="Previous Products"
+            className="w-6.25 h-6.25 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 active:scale-90 shadow-sm"
+          >
+            <Image
+              src="/icons/ArrowLeftIcon.svg"
+              alt="Previous"
+              width={25}
+              height={25}
+              className="w-6.25 h-6.25 pointer-events-none"
+            />
+          </button>
+
+          <button
+            type="button"
+            onClick={handleNext}
+            aria-label="Next Products"
+            className="w-6.25 h-6.25 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 active:scale-90 shadow-sm"
+          >
+            <Image
+              src="/icons/ArrowRightIcon.svg"
+              alt="Next"
+              width={25}
+              height={25}
+              className="w-6.25 h-6.25 pointer-events-none"
+            />
+          </button>
+        </div> */}
       </div>
 
       {/* Carousel Track Wrapper */}
       <div
-        className="w-full pt-3 pb-1 overflow-hidden animate-fade-in select-none"
+        className="w-full pt-3 pb-1 overflow-hidden animate-fade-in select-none cursor-grab active:cursor-grabbing"
         style={{ animationDelay: "1250ms" }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
       >
         <div
           className={`flex w-full ${
@@ -191,12 +264,13 @@ export default function BestSellersSection({
                   href={product.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  draggable={false}
                   onClick={(e) => {
                     if (isSwiping.current) {
                       e.preventDefault();
                     }
                   }}
-                  className="relative block w-full aspect-16/11 rounded-2xl overflow-hidden border-[1.55px] border-[#998A78] shadow-md group transform-gpu will-change-transform cursor-pointer active:scale-[0.98] transition-transform"
+                  className="relative block w-full aspect-16/11 rounded-2xl overflow-hidden border-[1.55px] border-[#998A78] shadow-md group transform-gpu will-change-transform cursor-pointer active:scale-[0.98] transition-transform select-none"
                   aria-label={`Get ${product.name}`}
                 >
                   {/* Background Product Image covering the card */}
@@ -206,8 +280,9 @@ export default function BestSellersSection({
                     fill
                     priority
                     loading="eager"
+                    draggable={false}
                     sizes="(max-width: 420px) 50vw, 200px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
                   />
 
                   {/* Get Button: 45x34 px, radius 20, centered text, bottom-right */}

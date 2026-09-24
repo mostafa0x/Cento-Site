@@ -33,31 +33,31 @@ export const BEST_SELLERS: BestSellerProduct[] = [
     id: 1,
     name: "Luxury Explosion",
     image: "/best sellers/Black Ice.webp",
-    link: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20want%20to%20order%20Luxury%20Explosion",
+    link: "https://centoscent.com/",
   },
   {
     id: 2,
     name: "Fragrance Splash",
     image: "/best sellers/Cento Car.webp",
-    link: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20want%20to%20order%20Fragrance%20Splash",
+    link: "https://centoscent.com/",
   },
   {
     id: 3,
     name: "Home Diffuser",
     image: "/best sellers/Cento Home Diffuser.webp",
-    link: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20want%20to%20order%20Home%20Diffuser",
+    link: "https://centoscent.com/",
   },
   {
     id: 4,
     name: "Stronger With You",
     image: "/best sellers/Stronger With You.webp",
-    link: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20want%20to%20order%20Stronger%20With%20You",
+    link: "https://centoscent.com/",
   },
 ];
 
 export const ACTION_BUTTONS = {
-  shopNowUrl: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20would%20like%20to%20shop%20your%20fragrances",
-  takeOfferUrl: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20would%20like%20to%20claim%20the%20special%20offer",
+  shopNowUrl: "https://centoscent.com/",
+  takeOfferUrl: "https://wa.me/201024188566?text=%D8%A7%D9%8A%D9%87%20%D9%87%D9%8A%20%D8%A7%D8%AE%D8%B1%20%D8%A7%D9%84%D8%B9%D8%B1%D9%88%D8%B6",
 };
 
 export const SHOWCASE_PRODUCTS: ShowcaseProduct[] = [
@@ -108,17 +108,17 @@ export const REVIEWS: ReviewItem[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: "Facebook",
-    url: "https://facebook.com",
+    url: "https://www.facebook.com/centooscent/",
     icon: "/icons/facebookIcon.svg",
   },
   {
     name: "Instagram",
-    url: "https://instagram.com",
+    url: "https://www.instagram.com/centoscent.perfumes",
     icon: "/icons/InstaIcon.svg",
   },
   {
     name: "WhatsApp",
-    url: "https://wa.me",
+    url: "https://wa.me/201024188566",
     icon: "/icons/WhatsIcon.svg",
   },
 ];
@@ -126,10 +126,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const LOCATIONS: LocationItem[] = [
   {
     name: "Mokattam",
-    mapUrl: "https://maps.google.com/?q=Cento+Scent+Mokattam",
+    mapUrl: "https://maps.app.goo.gl/6kfHUcRLZu6nUbC97",
   },
   {
     name: "Sayeda Zeinab",
-    mapUrl: "https://maps.google.com/?q=Cento+Scent+Sayeda+Zeinab",
+    mapUrl: "https://maps.app.goo.gl/uUrQ5bXo7suyRy3MA"
+    ,
   },
 ];
