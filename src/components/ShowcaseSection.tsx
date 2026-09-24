@@ -45,11 +45,11 @@ export default function ShowcaseSection({ onProductClick }: ShowcaseSectionProps
 
   return (
     <section className="w-full px-[16px] pt-[16px]">
-      <div className="grid grid-cols-[1fr_1.15fr] gap-3 items-stretch">
+      <div className="grid grid-cols-1 min-[375px]:grid-cols-[1fr_1.15fr] gap-4 min-[375px]:gap-3 items-stretch">
         
-        {/* Left Column: Product Showcase Bottle */}
+        {/* Left Column (or Top on < 375px): Product Showcase Bottle */}
         <div
-          className="relative w-full h-[285px] flex items-center justify-center overflow-visible animate-slide-in-left-fast cursor-pointer"
+          className="relative w-full h-[250px] min-[375px]:h-[285px] flex items-center justify-center overflow-visible animate-slide-in-left-fast cursor-pointer"
           style={{ animationDelay: "2050ms" }}
           onClick={onProductClick}
         >
@@ -62,23 +62,23 @@ export default function ShowcaseSection({ onProductClick }: ShowcaseSectionProps
           >
             {/* Perfume bottle with exact 22.87° tilt */}
             <div
-              className="relative w-[165px] h-[265px] transition-transform duration-300 hover:scale-105"
+              className="relative w-[150px] h-[240px] min-[375px]:w-[165px] min-[375px]:h-[265px] transition-transform duration-300 hover:scale-105"
               style={{ transform: "rotate(-22.87deg)" }}
             >
               <Image
                 src={SHOWCASE_PRODUCTS[currentProductIndex].image}
                 alt={SHOWCASE_PRODUCTS[currentProductIndex].alt}
                 fill
-                sizes="(max-width: 420px) 45vw, 190px"
+                sizes="(max-width: 374px) 70vw, (max-width: 420px) 45vw, 190px"
                 className="object-contain object-center drop-shadow-2xl"
               />
             </div>
           </div>
         </div>
 
-        {/* Right Column: Reviews Card + Location Buttons */}
+        {/* Right Column (or Bottom on < 375px): Reviews Card + Location Buttons */}
         <div
-          className="flex flex-col justify-between animate-slide-right-fast h-[285px]"
+          className="flex flex-col justify-between animate-slide-right-fast h-auto min-[375px]:h-[285px] gap-4 min-[375px]:gap-0"
           style={{ animationDelay: "2250ms" }}
         >
           {/* Reviews Card */}
