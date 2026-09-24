@@ -72,7 +72,7 @@ export default function BestSellersSection({
         className="w-full flex items-center justify-between animate-fade-in"
         style={{ animationDelay: "950ms" }}
       >
-        <h2 className="text-[17px] font-bold text-black tracking-tight">
+        <h2 className="text-[17px] font-semibold text-black tracking-tight">
           Best Sellers
         </h2>
 
@@ -150,13 +150,15 @@ export default function BestSellersSection({
                   src={product.image}
                   alt={product.name}
                   fill
+                  priority={carouselPage === 0}
+                  loading={carouselPage === 0 ? "eager" : "lazy"}
                   sizes="(max-width: 420px) 50vw, 200px"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
 
                 {/* Get Button: 45x34 px, radius 20, centered text, bottom-right */}
                 <span
-                  className="absolute bottom-2 right-2 w-11.25 h-8.5 rounded-[20px] bg-white text-black font-semibold text-[13px] flex items-center justify-center shadow-md group-hover:bg-neutral-100 group-active:scale-90 transition-all duration-150 z-10"
+                  className="absolute bottom-2 right-2 w-11.25 h-8.5 rounded-[20px] bg-white text-black font-medium text-[13px] flex items-center justify-center shadow-md group-hover:bg-neutral-100 group-active:scale-90 transition-all duration-150 z-10"
                 >
                   Get
                 </span>

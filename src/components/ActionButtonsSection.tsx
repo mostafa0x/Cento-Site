@@ -11,7 +11,7 @@ export default function ActionButtonsSection() {
           href={ACTION_BUTTONS.shopNowUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full h-12.5 bg-white text-black font-bold text-[17px] rounded-full flex items-center justify-center shadow-md hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200 cursor-pointer animate-fade-in"
+          className="w-full h-12.5 bg-white text-black font-medium text-[17px] rounded-full flex items-center justify-center shadow-md hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200 cursor-pointer animate-fade-in"
           style={{ animationDelay: "1550ms" }}
         >
           Shop Now
@@ -22,7 +22,7 @@ export default function ActionButtonsSection() {
           href={ACTION_BUTTONS.takeOfferUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full h-12.5 bg-white text-black font-bold text-[17px] rounded-full flex items-center justify-center shadow-md hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200 cursor-pointer animate-fade-in"
+          className="w-full h-12.5 bg-white text-black font-medium text-[17px] rounded-full flex items-center justify-center shadow-md hover:bg-neutral-50 active:scale-[0.98] transition-all duration-200 cursor-pointer animate-fade-in"
           style={{ animationDelay: "1800ms" }}
         >
           Take an Offer

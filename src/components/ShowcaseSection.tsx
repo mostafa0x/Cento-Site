@@ -67,12 +67,29 @@ export default function ShowcaseSection() {
                 src={SHOWCASE_PRODUCTS[currentProductIndex].image}
                 alt={SHOWCASE_PRODUCTS[currentProductIndex].alt}
                 fill
+                priority
+                loading="eager"
                 sizes="(max-width: 374px) 70vw, (max-width: 420px) 45vw, 190px"
                 className="object-contain object-center drop-shadow-2xl"
               />
             </div>
           </div>
         </a>
+
+        {/* Hidden preloader for secondary showcase image to ensure instant switch & zero LCP delay */}
+        <div className="hidden" aria-hidden="true">
+          {SHOWCASE_PRODUCTS.map((prod) => (
+            <Image
+              key={prod.id}
+              src={prod.image}
+              alt=""
+              width={10}
+              height={10}
+              priority
+              loading="eager"
+            />
+          ))}
+        </div>
 
         {/* Right Column (or Bottom on < 375px): Reviews Card + Location Buttons */}
         <div
@@ -81,12 +98,12 @@ export default function ShowcaseSection() {
         >
           {/* Reviews Card */}
           <div className="bg-white rounded-[20px] p-3.5 shadow-md flex flex-col justify-between h-33.75 relative overflow-hidden">
-            {/* Fixed "Reviews" Title */}
-            <h3 className="font-bold text-[14px] text-black tracking-tight">
+            {/* Fixed "Reviews" Title - mid (Medium) */}
+            <h3 className="font-medium text-[14px] text-black tracking-tight">
               Reviews
             </h3>
 
-            {/* Dynamic Comment Body with Slide-Out-Left and Slide-In-Left */}
+            {/* Dynamic Comment Body - Regular */}
             <div className="my-auto overflow-hidden">
               <div
                 className={`transition-all duration-300 ${isReviewTransitioning
@@ -130,7 +147,7 @@ export default function ShowcaseSection() {
                   height={20}
                   className="w-5 h-5 shrink-0"
                 />
-                <span className="font-bold text-[14px] text-black tracking-tight truncate">
+                <span className="font-semibold text-[14px] text-black tracking-tight truncate">
                   {loc.name}
                 </span>
               </a>

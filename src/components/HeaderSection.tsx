@@ -13,13 +13,19 @@ export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
       {/* Logo Container - Figma: pt:31, pb:19, perfectly centered */}
       <div className="pt-7.75 pb-4.75 w-full flex justify-center items-center">
         <div
-          className="w-25 h-25 min-w-25 min-h-25 max-w-25 max-h-25 aspect-square shrink-0 rounded-full bg-black flex items-center justify-center text-center shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
+          className="w-25 h-25 min-w-25 min-h-25 max-w-25 max-h-25 aspect-square shrink-0 rounded-full overflow-hidden shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
           style={{ animationDelay: "300ms" }}
           onClick={onLogoClick}
         >
-          <span className="font-serif text-[17px] text-white tracking-normal font-normal leading-tight px-2 select-none">
-            cento scent
-          </span>
+          <Image
+            src="/Logo.svg"
+            alt="Cento Scent Logo"
+            width={100}
+            height={100}
+            priority
+            loading="eager"
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
 

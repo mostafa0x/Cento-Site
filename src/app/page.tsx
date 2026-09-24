@@ -19,14 +19,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen w-full flex justify-center items-start overflow-x-hidden bg-black select-none">
+    <main className="relative min-h-screen w-full flex justify-center items-start overflow-x-hidden bg-[#946549] select-none">
       {/* Background Image: Desert Sand Texture Spanning Full Screen */}
-      <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
+      <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-[#946549]">
         <Image
           src="/Background.webp"
           alt="Cento Scent Background"
           fill
           priority
+          loading="eager"
+          quality={85}
           sizes="100vw"
           className="object-cover object-center"
         />

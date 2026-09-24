@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
+import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const jakartaSans = Plus_Jakarta_Sans({
+const poppins = Poppins({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const playfairDisplay = Playfair_Display({
@@ -28,7 +28,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#000000",
+  themeColor: "#946549",
 };
 
 export default function RootLayout({
@@ -39,9 +39,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakartaSans.variable} ${playfairDisplay.variable} h-full antialiased`}
+      className={`${poppins.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full font-sans antialiased text-[#111111] select-none bg-black">
+      <body className="min-h-full font-sans antialiased text-[#111111] select-none bg-[#946549]">
         {children}
       </body>
     </html>
