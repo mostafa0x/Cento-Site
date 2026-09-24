@@ -2,16 +2,14 @@
 
 import Image from "next/image";
 import { useState, useRef } from "react";
-import { BEST_SELLERS, BestSellerProduct } from "@/data/linktreeData";
+import { BEST_SELLERS } from "@/data/linktreeData";
 
 interface BestSellersSectionProps {
   isInitialEntrance: boolean;
-  onGetProduct: (product: BestSellerProduct) => void;
 }
 
 export default function BestSellersSection({
   isInitialEntrance,
-  onGetProduct,
 }: BestSellersSectionProps) {
   const [carouselPage, setCarouselPage] = useState<number>(0);
   const [carouselDirection, setCarouselDirection] = useState<"next" | "prev">("next");
@@ -68,7 +66,7 @@ export default function BestSellersSection({
       : [BEST_SELLERS[2], BEST_SELLERS[3]];
 
   return (
-    <section className="w-full px-[16px] mt-1">
+    <section className="w-full px-4 mt-1">
       {/* Header Row: Title & Arrow Controls (gap: 6px) */}
       <div
         className="w-full flex items-center justify-between animate-fade-in"
@@ -79,19 +77,19 @@ export default function BestSellersSection({
         </h2>
 
         {/* Carousel Arrow Controls */}
-        <div className="flex items-center gap-[6px]">
+        <div className="flex items-center gap-1.5">
           <button
             type="button"
             onClick={handlePrev}
             aria-label="Previous Products"
-            className="w-[25px] h-[25px] rounded-full flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 active:scale-90 shadow-sm"
+            className="w-6.25 h-6.25 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 active:scale-90 shadow-sm"
           >
             <Image
               src="/icons/ArrowLeftIcon.svg"
               alt="Previous"
               width={25}
               height={25}
-              className="w-[25px] h-[25px]"
+              className="w-6.25 h-6.25"
             />
           </button>
 
@@ -99,14 +97,14 @@ export default function BestSellersSection({
             type="button"
             onClick={handleNext}
             aria-label="Next Products"
-            className="w-[25px] h-[25px] rounded-full flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 active:scale-90 shadow-sm"
+            className="w-6.25 h-6.25 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 active:scale-90 shadow-sm"
           >
             <Image
               src="/icons/ArrowRightIcon.svg"
               alt="Next"
               width={25}
               height={25}
-              className="w-[25px] h-[25px]"
+              className="w-6.25 h-6.25"
             />
           </button>
         </div>
@@ -114,7 +112,7 @@ export default function BestSellersSection({
 
       {/* Products Carousel - Figma: pt:12 */}
       <div
-        className="w-full pt-[12px]"
+        className="w-full pt-3"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -138,10 +136,14 @@ export default function BestSellersSection({
             }
 
             return (
-              <div
+              <a
                 key={`${carouselPage}-${product.id}`}
+                href={product.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={animStyle}
-                className={`relative w-full aspect-[16/11] rounded-[16px] overflow-hidden border-[1.55px] border-[#998A78] shadow-md group transform-gpu will-change-transform ${animClass}`}
+                className={`relative block w-full aspect-16/11 rounded-2xl overflow-hidden border-[1.55px] border-[#998A78] shadow-md group transform-gpu will-change-transform cursor-pointer active:scale-[0.98] transition-transform ${animClass}`}
+                aria-label={`Get ${product.name}`}
               >
                 {/* Background Product Image covering the card */}
                 <Image
@@ -153,14 +155,12 @@ export default function BestSellersSection({
                 />
 
                 {/* Get Button: 45x34 px, radius 20, centered text, bottom-right */}
-                <button
-                  type="button"
-                  onClick={() => onGetProduct(product)}
-                  className="absolute bottom-2 right-2 w-[45px] h-[34px] rounded-[20px] bg-white text-black font-semibold text-[13px] flex items-center justify-center shadow-md cursor-pointer hover:bg-neutral-100 active:scale-90 transition-all duration-150 z-10"
+                <span
+                  className="absolute bottom-2 right-2 w-11.25 h-8.5 rounded-[20px] bg-white text-black font-semibold text-[13px] flex items-center justify-center shadow-md group-hover:bg-neutral-100 group-active:scale-90 transition-all duration-150 z-10"
                 >
                   Get
-                </button>
-              </div>
+                </span>
+              </a>
             );
           })}
         </div>

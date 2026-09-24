@@ -6,12 +6,9 @@ import HeaderSection from "@/components/HeaderSection";
 import BestSellersSection from "@/components/BestSellersSection";
 import ActionButtonsSection from "@/components/ActionButtonsSection";
 import ShowcaseSection from "@/components/ShowcaseSection";
-import ModalToast from "@/components/ModalToast";
-import { BestSellerProduct } from "@/data/linktreeData";
 
 export default function Home() {
   const [isInitialEntrance, setIsInitialEntrance] = useState<boolean>(true);
-  const [activeModal, setActiveModal] = useState<string | null>(null);
 
   // Complete initial waterfall entrance
   useEffect(() => {
@@ -37,47 +34,19 @@ export default function Home() {
       </div>
 
       {/* Centered Mobile Container (max-w-[420px]) */}
-      <div className="relative z-10 w-full max-w-[420px] flex flex-col justify-start pb-4">
-        
+      <div className="relative z-10 w-full max-w-105 flex flex-col justify-start pb-4">
         {/* Part 1: Logo & Social Icons */}
-        <HeaderSection
-          onLogoClick={() =>
-            setActiveModal("Cento Scent - Exclusive Luxury Fragrance House")
-          }
-        />
+        <HeaderSection />
 
         {/* Part 2: Best Sellers 2-card Carousel */}
-        <BestSellersSection
-          isInitialEntrance={isInitialEntrance}
-          onGetProduct={(product: BestSellerProduct) =>
-            setActiveModal(`Selected product: ${product.name}. Ready to order!`)
-          }
-        />
+        <BestSellersSection isInitialEntrance={isInitialEntrance} />
 
         {/* Part 3: Action Buttons (Shop Now & Take an Offer) */}
-        <ActionButtonsSection
-          onShopNow={() =>
-            setActiveModal("Opening Cento Scent Official Shop...")
-          }
-          onTakeOffer={() =>
-            setActiveModal("Special Offer: Buy 2 Fragrances & Get Free Shipping!")
-          }
-        />
+        <ActionButtonsSection />
 
         {/* Part 4: Split Showcase (Product 22.87° tilt + Reviews & Locations) */}
-        <ShowcaseSection
-          onProductClick={() =>
-            setActiveModal("Discover our signature perfume blend - crafted with rare essences.")
-          }
-        />
-
+        <ShowcaseSection />
       </div>
-
-      {/* Interactive Modal Toast */}
-      <ModalToast
-        message={activeModal}
-        onClose={() => setActiveModal(null)}
-      />
     </main>
   );
 }

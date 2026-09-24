@@ -4,11 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { SHOWCASE_PRODUCTS, REVIEWS, LOCATIONS } from "@/data/linktreeData";
 
-interface ShowcaseSectionProps {
-  onProductClick?: () => void;
-}
-
-export default function ShowcaseSection({ onProductClick }: ShowcaseSectionProps) {
+export default function ShowcaseSection() {
   // Product Rotator State
   const [currentProductIndex, setCurrentProductIndex] = useState<number>(0);
   const [isProductTransitioning, setIsProductTransitioning] = useState<boolean>(false);
@@ -44,25 +40,27 @@ export default function ShowcaseSection({ onProductClick }: ShowcaseSectionProps
   }, []);
 
   return (
-    <section className="w-full px-[16px] pt-[16px]">
+    <section className="w-full px-4 pt-4">
       <div className="grid grid-cols-1 min-[375px]:grid-cols-[1fr_1.15fr] gap-4 min-[375px]:gap-3 items-stretch">
-        
+
         {/* Left Column (or Top on < 375px): Product Showcase Bottle */}
-        <div
-          className="relative w-full h-[250px] min-[375px]:h-[285px] flex items-center justify-center overflow-visible animate-slide-in-left-fast cursor-pointer"
+        <a
+          href={SHOWCASE_PRODUCTS[currentProductIndex].link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative w-full h-62.5 min-[375px]:h-71.25 flex items-center justify-center overflow-visible animate-slide-in-left-fast cursor-pointer"
           style={{ animationDelay: "2050ms" }}
-          onClick={onProductClick}
+          aria-label={SHOWCASE_PRODUCTS[currentProductIndex].alt}
         >
           <div
-            className={`relative w-full h-full flex items-center justify-center transition-all ${
-              isProductTransitioning
+            className={`relative w-full h-full flex items-center justify-center transition-all ${isProductTransitioning
                 ? "animate-slide-out-left-fast"
                 : "animate-slide-in-left-loop-fast"
-            }`}
+              }`}
           >
             {/* Perfume bottle with exact 22.87° tilt */}
             <div
-              className="relative w-[150px] h-[240px] min-[375px]:w-[165px] min-[375px]:h-[265px] transition-transform duration-300 hover:scale-105"
+              className="relative w-37.5 h-60 min-[375px]:w-41.25 min-[375px]:h-66.25 transition-transform duration-300 hover:scale-105"
               style={{ transform: "rotate(-22.87deg)" }}
             >
               <Image
@@ -74,15 +72,15 @@ export default function ShowcaseSection({ onProductClick }: ShowcaseSectionProps
               />
             </div>
           </div>
-        </div>
+        </a>
 
         {/* Right Column (or Bottom on < 375px): Reviews Card + Location Buttons */}
         <div
-          className="flex flex-col justify-between animate-slide-right-fast h-auto min-[375px]:h-[285px] gap-4 min-[375px]:gap-0"
+          className="flex flex-col justify-between animate-slide-right-fast h-auto min-[375px]:h-71.25 gap-4 min-[375px]:gap-0"
           style={{ animationDelay: "2250ms" }}
         >
           {/* Reviews Card */}
-          <div className="bg-white rounded-[20px] p-3.5 shadow-md flex flex-col justify-between h-[135px] relative overflow-hidden">
+          <div className="bg-white rounded-[20px] p-3.5 shadow-md flex flex-col justify-between h-33.75 relative overflow-hidden">
             {/* Fixed "Reviews" Title */}
             <h3 className="font-bold text-[14px] text-black tracking-tight">
               Reviews
@@ -91,11 +89,10 @@ export default function ShowcaseSection({ onProductClick }: ShowcaseSectionProps
             {/* Dynamic Comment Body with Slide-Out-Left and Slide-In-Left */}
             <div className="my-auto overflow-hidden">
               <div
-                className={`transition-all duration-300 ${
-                  isReviewTransitioning
+                className={`transition-all duration-300 ${isReviewTransitioning
                     ? "animate-slide-out-left"
                     : "animate-slide-in-left-loop"
-                }`}
+                  }`}
               >
                 <p className="text-[11.5px] leading-tight text-[#333333] font-normal line-clamp-3">
                   {REVIEWS[currentReviewIndex].text}
@@ -117,21 +114,21 @@ export default function ShowcaseSection({ onProductClick }: ShowcaseSectionProps
           </div>
 
           {/* Location Buttons: 16px between Reviews & Mokattam, 16px between Mokattam & Sayeda Zeinab */}
-          <div className="flex flex-col gap-[16px] mt-[16px]">
+          <div className="flex flex-col gap-4 mt-4">
             {LOCATIONS.map((loc) => (
               <a
                 key={loc.name}
                 href={loc.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full h-[46px] bg-white rounded-full flex items-center px-4 gap-3 shadow-md hover:bg-neutral-50 active:scale-95 transition-all duration-150 cursor-pointer"
+                className="w-full h-11.5 bg-white rounded-full flex items-center px-4 gap-3 shadow-md hover:bg-neutral-50 active:scale-95 transition-all duration-150 cursor-pointer"
               >
                 <Image
                   src="/icons/LocIcon.svg"
                   alt="Location"
                   width={20}
                   height={20}
-                  className="w-[20px] h-[20px] shrink-0"
+                  className="w-5 h-5 shrink-0"
                 />
                 <span className="font-bold text-[14px] text-black tracking-tight truncate">
                   {loc.name}
