@@ -13,7 +13,7 @@ export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
       {/* Logo Container - Figma: pt:31, pb:19, perfectly centered */}
       <div className="pt-7.75 pb-4.75 w-full flex justify-center items-center">
         <div
-          className="w-25 h-25 min-w-25 min-h-25 max-w-25 max-h-25 aspect-square shrink-0 rounded-full overflow-hidden shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
+          className="w-28 h-28 min-w-28 min-h-28 max-w-28 max-h-28 aspect-square shrink-0 rounded-full overflow-hidden shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
           style={{ animationDelay: "300ms" }}
           onClick={onLogoClick}
         >
@@ -46,9 +46,9 @@ export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
             <Image
               src={social.icon}
               alt={social.name}
-              width={35}
-              height={35}
-              className="w-8.75 h-8.75 drop-shadow-sm opacity-90 hover:opacity-100 transition-opacity"
+              width={37}
+              height={37}
+              className="w-9 h-9 drop-shadow-sm opacity-90 hover:opacity-100 transition-opacity"
             />
           </a>
         ))}

@@ -9,7 +9,6 @@ export interface ShowcaseProduct {
   id: number;
   image: string;
   alt: string;
-  link?: string;
 }
 
 export interface ReviewItem {
@@ -66,36 +65,43 @@ export const SHOWCASE_PRODUCTS: ShowcaseProduct[] = [
     id: 1,
     image: "/Products/product1.webp",
     alt: "Cento Scent Explosive Fragrance Bottle",
-    link: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20want%20to%20inquire%20about%20your%20signature%20perfume",
   },
   {
     id: 2,
     image: "/Products/product2.webp",
     alt: "Cento Scent Luxury Perfume Edition",
-    link: "https://wa.me/?text=Hello%20Cento%20Scent,%20I%20want%20to%20inquire%20about%20your%20luxury%20perfume%20edition",
   },
 ];
 
 export const REVIEWS: ReviewItem[] = [
   {
     id: 1,
-    text: "fatastic experience i will buy another one for my wife",
+    text: " اجمد اكتشاف في مصر بجد الواحد مبسوط انو عميل عندكو",
     rating: 5,
   },
   {
     id: 2,
-    text: "Incredible fragrance longevity! Elegant, deep, and luxurious scent.",
-    rating: 5,
+    text: "من أريح الأماكن الإتعامَلت معاهم في العطور ، جربت منهم كم ريحة وكلهم طلعوا رهيبين وثباتهم ممتاز ، والأجمل إنو أي زول شم الريحه سألني جبتها من وين وفعلاً رسلت ليهم ناس كتار وكلهم شكروني",
+    rating: 4,
   },
   {
     id: 3,
-    text: "Best perfume I've purchased this year. Everyone asks about it!",
+    text: "الاوردر وصلى وبجد تحفة تحفة دة تالت اوردر منكم ومش الاخير ودايماً ناجحين وكواليتي جميل جداً ",
     rating: 5,
   },
   {
     id: 4,
-    text: "Pure perfection in every spray. Packaging and bottle look stunning.",
+    text: "البرفان بيثبت جدا و سعره مناسب و وصل بسرعه",
+    rating: 4,
+  },
+  {
+    id: 5,
+    text: "عن تجربة معاكم أكتر من مرة , حاجتكم حلوه جداااااا ومميزين بأنواع مش عند حد تانى",
     rating: 5,
+  }, {
+    id: 6,
+    text: "حاجتكم جميله بجد ثبات وفوحاان رهييييب ❤️❤️❤️",
+    rating: 4,
   },
 ];
 

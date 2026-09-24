@@ -16,8 +16,8 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Cento Scent | Exclusive Fragrance Collection",
-  description: "Official Cento Scent LinkTree. Explore our luxury perfume collection, best sellers, reviews, and store locations.",
+  title: "Cento Scent",
+  description: "Official Cento Scent. Explore our  collection, best sellers, reviews, and store locations.",
   icons: {
     icon: "/favicon.ico",
   },

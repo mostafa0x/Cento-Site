@@ -44,19 +44,17 @@ export default function ShowcaseSection() {
       <div className="grid grid-cols-1 min-[375px]:grid-cols-[1fr_1.15fr] gap-4 min-[375px]:gap-3 items-stretch">
 
         {/* Left Column (or Top on < 375px): Product Showcase Bottle */}
-        <a
-          href={SHOWCASE_PRODUCTS[currentProductIndex].link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative w-full h-62.5 min-[375px]:h-71.25 flex items-center justify-center overflow-visible animate-slide-in-left-fast cursor-pointer"
+        <div
+          className="relative w-full h-62.5 min-[375px]:h-71.25 flex items-center justify-center overflow-visible animate-slide-in-left-fast"
           style={{ animationDelay: "2050ms" }}
           aria-label={SHOWCASE_PRODUCTS[currentProductIndex].alt}
         >
           <div
-            className={`relative w-full h-full flex items-center justify-center transition-all ${isProductTransitioning
+            className={`relative w-full h-full flex items-center justify-center transition-all ${
+              isProductTransitioning
                 ? "animate-slide-out-left-fast"
                 : "animate-slide-in-left-loop-fast"
-              }`}
+            }`}
           >
             {/* Perfume bottle with exact 22.87° tilt */}
             <div
@@ -74,7 +72,7 @@ export default function ShowcaseSection() {
               />
             </div>
           </div>
-        </a>
+        </div>
 
         {/* Hidden preloader for secondary showcase image to ensure instant switch & zero LCP delay */}
         <div className="hidden" aria-hidden="true">
