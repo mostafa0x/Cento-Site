@@ -41,6 +41,15 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/Background.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+      </head>
       <body className="min-h-full font-sans antialiased text-[#111111] select-none bg-[#946549]">
         {children}
       </body>

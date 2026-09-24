@@ -28,8 +28,10 @@ export default function Home() {
           fill
           priority
           loading="eager"
-          quality={85}
+          fetchPriority="high"
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJQBYdgxVkJNps55AljgAA+foAeHYqqoNILzjlVzlHXXiIwyDZQDGQeZd2Qpx2snb8WuQfoKmUAAAA"
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/10" />
