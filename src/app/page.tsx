@@ -37,7 +37,7 @@ export default function Home() {
       </div>
 
       {/* Centered Mobile Container (max-w-[420px]) */}
-      <div className="relative z-10 w-full max-w-[420px] min-h-screen flex flex-col justify-start pb-8">
+      <div className="relative z-10 w-full max-w-[420px] flex flex-col justify-start pb-4">
         
         {/* Part 1: Logo & Social Icons */}
         <HeaderSection
