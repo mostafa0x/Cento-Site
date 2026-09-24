@@ -85,6 +85,14 @@
   animation: slideInLeftAnim 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.animate-slide-in-left-fast {
+  animation: slideInLeftAnim 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-right-fast {
+  animation: slideInRightAnim 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 .animate-slide-in-right {
   animation: slideInRightAnim 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -93,8 +101,16 @@
   animation: slideOutToLeftAnim 0.45s ease-in forwards;
 }
 
+.animate-slide-out-left-fast {
+  animation: slideOutToLeftAnim 0.28s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
 .animate-slide-in-left-loop {
   animation: slideInFromLeftAnim 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-left-loop-fast {
+  animation: slideInFromLeftAnim 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 html, body {

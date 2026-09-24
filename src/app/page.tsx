@@ -102,7 +102,7 @@ export default function Home() {
       setTimeout(() => {
         setCurrentProductIndex((prev) => (prev + 1) % SHOWCASE_PRODUCTS.length);
         setIsProductTransitioning(false);
-      }, 400);
+      }, 260);
     }, 4500);
 
     return () => clearInterval(productInterval);
@@ -424,33 +424,39 @@ export default function Home() {
             
             {/* Left Column: Product Showcase Bottle */}
             <div
-              className="relative w-full h-[285px] flex items-center justify-center overflow-hidden animate-slide-in-left cursor-pointer"
-              style={{ animationDelay: "1450ms" }}
+              className="relative w-full h-[285px] flex items-center justify-center overflow-visible animate-slide-in-left-fast cursor-pointer"
+              style={{ animationDelay: "500ms" }}
               onClick={() =>
                 setActiveModal("Discover our signature perfume blend - crafted with rare essences.")
               }
             >
               <div
-                className={`relative w-full h-full flex items-center justify-center transition-all duration-400 ${
+                className={`relative w-full h-full flex items-center justify-center transition-all ${
                   isProductTransitioning
-                    ? "animate-slide-out-left"
-                    : "animate-slide-in-left-loop"
+                    ? "animate-slide-out-left-fast"
+                    : "animate-slide-in-left-loop-fast"
                 }`}
               >
-                <Image
-                  src={SHOWCASE_PRODUCTS[currentProductIndex].image}
-                  alt={SHOWCASE_PRODUCTS[currentProductIndex].alt}
-                  fill
-                  sizes="(max-width: 420px) 45vw, 190px"
-                  className="object-contain object-center drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                />
+                {/* Perfume bottle rotated by exact 22.87 degrees */}
+                <div
+                  className="relative w-[165px] h-[265px] transition-transform duration-300 hover:scale-105"
+                  style={{ transform: "rotate(-22.87deg)" }}
+                >
+                  <Image
+                    src={SHOWCASE_PRODUCTS[currentProductIndex].image}
+                    alt={SHOWCASE_PRODUCTS[currentProductIndex].alt}
+                    fill
+                    sizes="(max-width: 420px) 45vw, 190px"
+                    className="object-contain object-center drop-shadow-2xl"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Right Column: Reviews Card + Location Buttons */}
             <div
-              className="flex flex-col justify-between animate-slide-in-right h-[285px]"
-              style={{ animationDelay: "1550ms" }}
+              className="flex flex-col justify-between animate-slide-right-fast h-[285px]"
+              style={{ animationDelay: "550ms" }}
             >
               {/* Reviews Card */}
               <div className="bg-white rounded-[20px] p-3.5 shadow-md flex flex-col justify-between h-[135px] relative overflow-hidden">
