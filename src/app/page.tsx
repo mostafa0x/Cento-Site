@@ -18,9 +18,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen w-full max-w-full flex justify-center items-start overflow-x-hidden bg-transparent select-none">
+    <main className="relative min-h-[110vh] w-full max-w-full flex justify-center items-start overflow-x-hidden bg-transparent select-none pb-8">
       {/* Centered Mobile Container (max-w-[420px]) */}
-      <div className="relative z-10 w-full max-w-105 flex flex-col justify-start pb-4 overflow-x-hidden">
+      <div className="relative z-10 w-full max-w-105 flex flex-col justify-start pb-6 overflow-x-hidden">
         {/* Part 1: Logo & Social Icons */}
         <HeaderSection />
 

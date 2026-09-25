@@ -123,26 +123,22 @@ html {
 }
 
 body {
+  position: relative;
   overflow-x: hidden;
   width: 100%;
   min-height: 100vh;
   background-color: var(--background);
 }
 
-#cento-fixed-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100lvh;
+#cento-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
   z-index: -10;
   pointer-events: none;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/Background.webp');
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
   background-repeat: no-repeat;
-  will-change: transform;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
 }

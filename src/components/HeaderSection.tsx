@@ -13,18 +13,18 @@ export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
       {/* Logo Container - Figma: pt:31, pb:19, perfectly centered */}
       <div className="pt-7.75 pb-4.75 w-full flex justify-center items-center">
         <div
-          className="w-34 h-34 min-w-34 min-h-34 max-w-34 max-h-34 aspect-square shrink-0 rounded-full overflow-hidden shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
+          className="w-34 h-34 min-w-34 min-h-34 max-w-34 max-h-34 aspect-square shrink-0 rounded-full overflow-hidden shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300 bg-white"
           style={{ animationDelay: "300ms" }}
           onClick={onLogoClick}
         >
           <Image
-            src="/Logo.svg"
+            src="/NewLogo.webp"
             alt="Cento Scent Logo"
-            width={100}
-            height={100}
+            width={136}
+            height={136}
             priority
             loading="eager"
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover rounded-full"
           />
         </div>
       </div>
@@ -46,8 +46,8 @@ export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
             <Image
               src={social.icon}
               alt={social.name}
-              width={37}
-              height={37}
+              width={46}
+              height={46}
               className="w-9 h-9 drop-shadow-sm opacity-90 hover:opacity-100 transition-opacity"
             />
           </a>
