@@ -50,11 +50,10 @@ export default function ShowcaseSection() {
           aria-label={SHOWCASE_PRODUCTS[currentProductIndex].alt}
         >
           <div
-            className={`relative w-full h-full flex items-center justify-center transition-all ${
-              isProductTransitioning
+            className={`relative w-full h-full flex items-center justify-center transition-all ${isProductTransitioning
                 ? "animate-slide-out-left-fast"
                 : "animate-slide-in-left-loop-fast"
-            }`}
+              }`}
           >
             {/* Perfume bottle with exact 22.87° tilt */}
             <div
@@ -105,11 +104,11 @@ export default function ShowcaseSection() {
             <div className="my-auto overflow-hidden">
               <div
                 className={`transition-all duration-300 ${isReviewTransitioning
-                    ? "animate-slide-out-left"
-                    : "animate-slide-in-left-loop"
+                  ? "animate-slide-out-left"
+                  : "animate-slide-in-left-loop"
                   }`}
               >
-                <p className="text-[11.5px] leading-tight text-[#333333] font-normal line-clamp-3">
+                <p className="text-[11.5px] leading-tight text-right text-[#333333] font-normal line-clamp-3">
                   {REVIEWS[currentReviewIndex].text}
                 </p>
               </div>
