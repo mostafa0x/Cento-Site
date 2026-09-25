@@ -88,7 +88,7 @@ export default function RootLayout({
           fetchPriority="high"
         />
       </head>
-      <body className="font-sans antialiased text-[#111111] select-none bg-[#946549] relative min-h-screen">
+      <body className="font-sans antialiased text-[#111111] select-none bg-white relative min-h-screen">
         {/* Full-height background that scrolls naturally with page content */}
         <div id="cento-bg" aria-hidden="true" />
 
