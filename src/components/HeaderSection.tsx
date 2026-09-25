@@ -13,7 +13,7 @@ export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
       {/* Logo Container - Figma: pt:31, pb:19, perfectly centered */}
       <div className="pt-7.75 pb-4.75 w-full flex justify-center items-center">
         <div
-          className="w-28 h-28 min-w-28 min-h-28 max-w-28 max-h-28 aspect-square shrink-0 rounded-full overflow-hidden shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
+          className="w-34 h-34 min-w-34 min-h-34 max-w-34 max-h-34 aspect-square shrink-0 rounded-full overflow-hidden shadow-2xl animate-fade-in cursor-pointer hover:scale-105 active:scale-95 transition-transform duration-300"
           style={{ animationDelay: "300ms" }}
           onClick={onLogoClick}
         >
