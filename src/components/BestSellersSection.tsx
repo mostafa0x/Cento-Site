@@ -186,7 +186,7 @@ export default function BestSellersSection({
   };
 
   return (
-    <section className="w-full px-4 mt-1">
+    <section className="w-full max-w-full px-4 mt-1 overflow-hidden">
       {/* Header Row: Title & Arrow Controls */}
       <div
         className="w-full flex items-center justify-between animate-fade-in"
@@ -232,7 +232,7 @@ export default function BestSellersSection({
 
       {/* Carousel Track Wrapper */}
       <div
-        className="w-full pt-3 pb-1 overflow-hidden animate-fade-in select-none cursor-grab active:cursor-grabbing"
+        className="w-full max-w-full pt-3 pb-1 overflow-hidden animate-fade-in select-none cursor-grab active:cursor-grabbing"
         style={{ animationDelay: "1250ms" }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}

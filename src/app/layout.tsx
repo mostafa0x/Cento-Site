@@ -15,11 +15,49 @@ const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://visit.centoscent.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Cento Scent",
-  description: "Official Cento Scent. Explore our  collection, best sellers, reviews, and store locations.",
+  description: "Your Story Your Scent",
+  applicationName: "Cento Scent",
+  authors: [{ name: "Cento Scent" }],
+  creator: "Cento Scent",
+  publisher: "Cento Scent",
   icons: {
     icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Cento Scent",
+    title: "Cento Scent",
+    description: "Your Story Your Scent",
+    images: [
+      {
+        url: "/Link-Image.jpg",
+        width: 1280,
+        height: 1280,
+        alt: "Cento Scent - Your Story Your Scent",
+        type: "image/jpeg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cento Scent",
+    description: "Your Story Your Scent",
+    images: [
+      {
+        url: "/Link-Image.jpg",
+        width: 1280,
+        height: 1280,
+        alt: "Cento Scent - Your Story Your Scent",
+      },
+    ],
   },
 };
 
@@ -39,18 +77,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${playfairDisplay.variable} h-full antialiased`}
+      className={`${poppins.variable} ${playfairDisplay.variable} antialiased`}
     >
       <head>
         <link
           rel="preload"
           as="image"
-          href="/Background.webp"
+          href="/background.webp"
           type="image/webp"
           fetchPriority="high"
         />
       </head>
-      <body className="min-h-full font-sans antialiased text-[#111111] select-none bg-[#946549]">
+      <body className="font-sans antialiased text-[#111111] select-none bg-[#946549]">
+        {/* Fixed background: exact size of the current screen, completely static */}
+        <div id="cento-fixed-bg" aria-hidden="true" />
+
         {children}
       </body>
     </html>

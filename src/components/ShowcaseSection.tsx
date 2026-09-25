@@ -40,7 +40,7 @@ export default function ShowcaseSection() {
   }, []);
 
   return (
-    <section className="w-full px-4 pt-4">
+    <section className="w-full max-w-full px-4 pt-4 overflow-hidden">
       <div className="grid grid-cols-1 min-[375px]:grid-cols-[1fr_1.15fr] gap-4 min-[375px]:gap-3 items-stretch">
 
         {/* Left Column (or Top on < 375px): Product Showcase Bottle */}

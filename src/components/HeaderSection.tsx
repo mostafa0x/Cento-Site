@@ -9,7 +9,7 @@ interface HeaderSectionProps {
 
 export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
   return (
-    <section className="w-full flex flex-col items-center">
+    <section className="w-full max-w-full flex flex-col items-center overflow-hidden">
       {/* Logo Container - Figma: pt:31, pb:19, perfectly centered */}
       <div className="pt-7.75 pb-4.75 w-full flex justify-center items-center">
         <div

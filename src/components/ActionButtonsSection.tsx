@@ -4,7 +4,7 @@ import { ACTION_BUTTONS } from "@/data/linktreeData";
 
 export default function ActionButtonsSection() {
   return (
-    <section className="w-full px-4 mt-4">
+    <section className="w-full max-w-full px-4 mt-4 overflow-hidden">
       <div className="flex flex-col gap-4">
         {/* Shop Now Link */}
         <a

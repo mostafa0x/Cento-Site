@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import HeaderSection from "@/components/HeaderSection";
 import BestSellersSection from "@/components/BestSellersSection";
@@ -19,27 +18,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen w-full flex justify-center items-start overflow-x-hidden bg-[#946549] select-none">
-      {/* Background Image: Desert Sand Texture Spanning Full Screen */}
-      <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-[#946549]">
-        <Image
-          src="/Background.webp"
-          alt="Cento Scent Background"
-          fill
-          priority
-          loading="eager"
-          fetchPriority="high"
-          sizes="100vw"
-          quality={85}
-          placeholder="blur"
-          blurDataURL="data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJQBYdgxVkJNps55AljgAA+foAeHYqqoNILzjlVzlHXXiIwyDZQDGQeZd2Qpx2snb8WuQfoKmUAAAA"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/10" />
-      </div>
-
+    <main className="relative min-h-screen w-full max-w-full flex justify-center items-start overflow-x-hidden bg-transparent select-none">
       {/* Centered Mobile Container (max-w-[420px]) */}
-      <div className="relative z-10 w-full max-w-105 flex flex-col justify-start pb-4">
+      <div className="relative z-10 w-full max-w-105 flex flex-col justify-start pb-4 overflow-x-hidden">
         {/* Part 1: Logo & Social Icons */}
         <HeaderSection />
 
