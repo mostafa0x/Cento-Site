@@ -2,6 +2,12 @@
 /Link-Image.jpg
   Cache-Control: public, max-age=31536000, immutable
 
+/background-v2.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/Background-v2.webp
+  Cache-Control: public, max-age=31536000, immutable
+
 /background.webp
   Cache-Control: public, max-age=31536000, immutable
 

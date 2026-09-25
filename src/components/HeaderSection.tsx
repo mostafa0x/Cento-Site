@@ -48,7 +48,7 @@ export default function HeaderSection({ onLogoClick }: HeaderSectionProps) {
               alt={social.name}
               width={46}
               height={46}
-              className="w-9 h-9 drop-shadow-sm opacity-90 hover:opacity-100 transition-opacity"
+              className="w-11.5 h-11.5 drop-shadow-sm opacity-90 hover:opacity-100 transition-opacity"
             />
           </a>
         ))}

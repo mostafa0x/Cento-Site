@@ -1,2 +1,3 @@
 # Cloudflare Pages Redirects / Rewrites
+/background-v2.webp /Background-v2.webp 200
 /background.webp /Background.webp 200
