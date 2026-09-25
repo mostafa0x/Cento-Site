@@ -138,7 +138,7 @@ body {
   height: 100lvh;
   z-index: -10;
   pointer-events: none;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/background.webp');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('/Background.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

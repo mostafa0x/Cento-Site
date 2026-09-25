@@ -83,7 +83,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/background.webp"
+          href="/Background.webp"
           type="image/webp"
           fetchPriority="high"
         />
