@@ -19,12 +19,12 @@ const siteUrl = "https://visit.centoscent.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Cento Scent",
+  title: "cento scent",
   description: "Your Story Your Scent",
-  applicationName: "Cento Scent",
-  authors: [{ name: "Cento Scent" }],
-  creator: "Cento Scent",
-  publisher: "Cento Scent",
+  applicationName: "cento scent",
+  authors: [{ name: "cento scent" }],
+  creator: "cento scent",
+  publisher: "cento scent",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -33,29 +33,29 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Cento Scent",
-    title: "Cento Scent",
+    siteName: "cento scent",
+    title: "cento scent",
     description: "Your Story Your Scent",
     images: [
       {
         url: "/Link-Image.jpg",
         width: 1280,
         height: 1280,
-        alt: "Cento Scent - Your Story Your Scent",
+        alt: "cento scent - Your Story Your Scent",
         type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cento Scent",
+    title: "cento scent",
     description: "Your Story Your Scent",
     images: [
       {
         url: "/Link-Image.jpg",
         width: 1280,
         height: 1280,
-        alt: "Cento Scent - Your Story Your Scent",
+        alt: "cento scent - Your Story Your Scent",
       },
     ],
   },
